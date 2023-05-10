@@ -78,7 +78,8 @@ if (!empty($_POST)) {
                 echo '
 
     <tbody>
-    <tr><td>' . $value['id_li'] . '</td>
+    <tr>
+    <td>' . $value['id_li'] . '</td>
     <td>' . $value['titre_li'] . '</td>
     <td>' . $value['date_parution_li'] . '</td>
     <td>' . $value['resume_li'] . '</td>
