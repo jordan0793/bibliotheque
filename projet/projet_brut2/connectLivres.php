@@ -61,7 +61,9 @@
 
     // On récupére les données ( fetch ou fetchAll)
     //fetch récupére une valeur , All récupére plusieurs valeurs
+
     $livres = $requete->fetchAll();
+
     // var_dump($utilisateurs);
 
     // echo "<pre>";

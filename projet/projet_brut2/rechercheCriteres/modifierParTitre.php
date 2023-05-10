@@ -16,8 +16,8 @@ include_once "../header.php";
         <legend>Rechercher un Titre</legend>
 
         <div class="form-group">
-            <label for="type" class="form-label mt-4">Entrer un genre</label>
-            <input type="text" class="form-control" id="type" name="type" aria-describedby="type" placeholder="Entrer le genre du livre">
+            <label for="titre" class="form-label mt-4">Entrer un Titre</label>
+            <input type="text" class="form-control" id="titre" name="titre" aria-describedby="titre" placeholder="Entrer le titre du livre">
         </div>
 
 
@@ -31,13 +31,13 @@ if (!empty($_POST)) {
 
 
     if (
-        isset($_POST["type"])
-        && !empty($_POST["type"])
+        isset($_POST["titre"])
+        && !empty($_POST["titre"])
     ) {
         require_once "../connect.php";
 
-
-        $sql = "SELECT id_li, titre_li, date_parution_li, resume_li, type_li, auteur_li, nb_exemplaire_li FROM `livre` WHERE `type_li` LIKE CONCAT('%', :type, '%')";
+        // $sql = "SELECT titre_li FROM `livre` WHERE `titre_li` = :titre";
+        $sql = "SELECT id_li, titre_li, date_parution_li, resume_li, type_li, titre_li, auteur_li, nb_exemplaire_li FROM `livre` WHERE `titre_li` LIKE CONCAT('%', :titre, '%')";
 
 
 
@@ -45,14 +45,14 @@ if (!empty($_POST)) {
 
 
         //bindValue protection , la valeur reçoit comme paramètre , obligation de traiter cela en chaine de caractère, protection permettant de ne pas inclure de language.
-        $query->bindValue(":type", $_POST["type"], PDO::PARAM_STR);
+        $query->bindValue(":titre", $_POST["titre"], PDO::PARAM_STR);
 
         $query->execute();
 
         $livres = $query->fetchAll();
 
         if (count($livres) > 0) {
-            //echo "ce livre est répertorié";
+            //echo "ce titre est répertorié";
 ?>
             <table class="table table-hover">
                 <thead>
@@ -64,7 +64,10 @@ if (!empty($_POST)) {
                         <th scope="col">type</th>
                         <th scope="col">Auteur</th>
                         <th scope="col">nombre d'exemplaire</th>
+
+
                     </tr>
+
                 </thead>
     <?php
             // foreach ($livres as $value) {
@@ -74,18 +77,22 @@ if (!empty($_POST)) {
                 echo '
 
     <tbody>
-    <tr><td>' . $value['id_li'] . '</td>
+    
+    <tr>
+    <td>' . $value['id_li'] .  '</td>
     <td>' . $value['titre_li'] . '</td>
     <td>' . $value['date_parution_li'] . '</td>
     <td>' . $value['resume_li'] . '</td>
     <td>' . $value['type_li'] . '</td>
     <td>' . $value['auteur_li'] . '</td>
-    <td>' . $value['nb_exemplaire_li'] . '</td>
-    </td>
+    <td>' . $value['nb_exemplaire_li']  . '<a href="/rechercheCriteres/fonctions/modifierLivre.php?id=' . $value['id_li'] . '">Modifier</a>
+    
+    </td> 
     </tr>';
             }
+            // var_dump($value['id_li']);
         } else {
-            die("Ce titre n'est pas répertorié, Veuillez Reessayez");
+            die("Cet auteur n'est pas répertorié, Veuillez Reessayez");
         }
     }
 }
@@ -95,19 +102,6 @@ if (!empty($_POST)) {
     ?>
     </tbody>
             </table>
-            <!-- <form method="post">
-    <fieldset>
-        <legend>Rechercher un Auteur</legend>
-
-        <div class="form-group">
-            <label for="auteur" class="form-label mt-4">Entrer un Auteur</label>
-            <input type="text" class="form-control" id="auteur" name="auteur" aria-describedby="auteur" placeholder="Entrer l'auteur du livre">
-        </div>
-
-
-    </fieldset>
-    <button type="submit">Soumettre</button>
-</form> -->
 
             <?php
             include_once "../footer.php"

@@ -22,7 +22,7 @@ include_once "../header.php";
 
 
     </fieldset>
-    <button type="submit">Soumettre</button>
+    <button>Soumettre</button>
 </form>
 <?php
 
@@ -64,28 +64,30 @@ if (!empty($_POST)) {
                         <th scope="col">type</th>
                         <th scope="col">Auteur</th>
                         <th scope="col">nombre d'exemplaire</th>
+
+
                     </tr>
+
                 </thead>
     <?php
-            // foreach ($livres as $value) {
-            //     echo "<br>" . $value["titre_li"];
-            // }
+
             foreach ($livres as $value) {
                 echo '
 
     <tbody>
-    <tr><td>' . $value['id_li'] . '</td>
+    
+    <tr>
+    <td>' . $value['id_li'] .  '</td>
     <td>' . $value['titre_li'] . '</td>
     <td>' . $value['date_parution_li'] . '</td>
     <td>' . $value['resume_li'] . '</td>
     <td>' . $value['type_li'] . '</td>
     <td>' . $value['auteur_li'] . '</td>
-    <td>' . $value['nb_exemplaire_li'] . '</td>
-    </td>
+    <td>' . $value['nb_exemplaire_li']  . '<a href="./fonctions/supprimerLivre.php?id=' . $value['id_li'] . '">Supprimer</a>
+    
+    </td> 
     </tr>';
             }
-        } else {
-            die("Cet auteur n'est pas répertorié, Veuillez Reessayez");
         }
     }
 }
@@ -95,19 +97,6 @@ if (!empty($_POST)) {
     ?>
     </tbody>
             </table>
-            <!-- <form method="post">
-    <fieldset>
-        <legend>Rechercher un Auteur</legend>
-
-        <div class="form-group">
-            <label for="auteur" class="form-label mt-4">Entrer un Auteur</label>
-            <input type="text" class="form-control" id="auteur" name="auteur" aria-describedby="auteur" placeholder="Entrer l'auteur du livre">
-        </div>
-
-
-    </fieldset>
-    <button type="submit">Soumettre</button>
-</form> -->
 
             <?php
             include_once "../footer.php"

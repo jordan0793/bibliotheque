@@ -208,33 +208,63 @@ class Model extends Db
 
     //------------------------Modifier la BDD Update-------------------------------------
 
-    public  function update(int $id, model $model)
+    // public  function update(int $id, model $model)
     // integer en paramètre pour slectionner l'id et le modifier
+    // {
+    //     $champs = [];
+    //     $valeurs = [];
+    //     foreach ($model as $champ => $valeur) {
+    // UPDATE annonces SET titre = ?, description = ?, actif = ?) WHERE id = ?,
+
+
+    // if ($valeur !== null && $champ != 'db' && $champ != 'table') {
+
+    // bien mettre le $valeur !== nul et pas != null, car sion il prend en compte le 0 comme étant null ce qui était le problème durand tout l'exercice.
+    // je push les champs et les valeur , le push a lieu ici 
+    //         $champs[] = "$champ = ?";
+    //         $valeurs[] = "$valeur";
+    //     }
+    // }
+    // On transforme le tableau $champs en une chaine de caractères
+    // $valeurs[] = $id;
+    // $liste_champs = implode(', ', $champs);
+
+    // echo '<pre>';
+    // echo ($liste_champs);
+    // echo '</pre>';
+    // die($liste_inter);
+
+    // On exécute la requête
+
+    //     return $this->runQuery('UPDATE ' . $this->table . ' SET ' . $liste_champs . ' WHERE id = ?', $valeurs);
+    // }
+
+    //--------------------------------------Update sans comment --------------------------------------
+
+    public  function update(int $id, model $model)
+
     {
         $champs = [];
         $valeurs = [];
         foreach ($model as $champ => $valeur) {
-            // UPDATE annonces SET titre = ?, description = ?, actif = ?) WHERE id = ?,
-
 
             if ($valeur !== null && $champ != 'db' && $champ != 'table') {
 
-                // bien mettre le $valeur !== nul et pas != null, car sion il prend en compte le 0 comme étant null ce qui était le problème durand tout l'exercice.
-                // je push les champs et les valeur , le push a lieu ici 
+
                 $champs[] = "$champ = ?";
                 $valeurs[] = "$valeur";
             }
         }
-        // On transforme le tableau $champs en une chaine de caractères
+
         $valeurs[] = $id;
         $liste_champs = implode(', ', $champs);
 
         echo '<pre>';
         echo ($liste_champs);
         echo '</pre>';
-        // die($liste_inter);
 
-        // On exécute la requête
+
+
 
         return $this->runQuery('UPDATE ' . $this->table . ' SET ' . $liste_champs . ' WHERE id = ?', $valeurs);
     }

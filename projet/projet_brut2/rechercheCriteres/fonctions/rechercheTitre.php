@@ -6,10 +6,10 @@ use App\Db\Db;
 use App\Models\AnnoncesModel;
 use App\Models\Model;
 
-require_once '../Autoloader.php';
+require_once '../../Autoloader.php';
 Autoloader::register();
 
-include_once "../header.php";
+include_once "../../header.php";
 ?>
 <form method="post">
     <fieldset>
@@ -34,7 +34,7 @@ if (!empty($_POST)) {
         isset($_POST["titre"])
         && !empty($_POST["titre"])
     ) {
-        require_once "../connect.php";
+        require_once "../../connect.php";
 
         // $sql = "SELECT titre_li FROM `livre` WHERE `titre_li` = :titre";
         $sql = "SELECT id_li, titre_li, date_parution_li, resume_li, type_li, auteur_li, nb_exemplaire_li FROM `livre` WHERE `titre_li` LIKE CONCAT('%', :titre, '%')";
@@ -110,5 +110,5 @@ if (!empty($_POST)) {
 </form> -->
 
             <?php
-            include_once "../footer.php"
+            include_once "../../footer.php"
             ?>
