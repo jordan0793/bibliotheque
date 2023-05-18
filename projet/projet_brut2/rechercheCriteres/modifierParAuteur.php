@@ -22,7 +22,7 @@ include_once "../header.php";
 
 
     </fieldset>
-    <button type="submit">Soumettre</button>
+    <button type="submit" class='mt-2'>Soumettre</button>
 </form>
 <?php
 

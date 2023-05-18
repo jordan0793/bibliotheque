@@ -8,6 +8,7 @@ include "header.php";
 
 <p>Pseudo :<?= $_SESSION["user"]["pseudo"] ?></p>
 <p>Email :<?= $_SESSION["user"]["email"] ?></p>
+<p>Email :<?= $_SESSION["user"]["roles"] ?></p>
 
 
 <?php

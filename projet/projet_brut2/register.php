@@ -9,7 +9,7 @@ if (isset($_SESSION["user"]["pseudo"])) {
 }
 // on verifie si le formulaire a été envoyé
 if (!empty($_POST)) {
-    var_dump($_POST);
+    // var_dump($_POST);
 
     // Si n'est pas vide mon formulaire , afficher les valeurs de mon formulaire 
 
@@ -90,24 +90,87 @@ if (!empty($_POST)) {
 // On inclu le header 
 include "header.php";
 ?>
-
-<h1> Inscription </h1>
-<form method="post">
-    <div>
-        <label for="pseudo">Pseudo</label>
-        <input type="text" name="nickname" id="pseudo">
-    </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-    </div>
-    <div>
-        <label for="pass">Mot de passe</label>
-        <input type="password" name="pass" id="pass">
-    </div>
-    <button type="submit">M'inscrire</button>
-</form>
+<div class="container">
+    <h1> Inscription </h1>
+    <form method="post" class="form">
+        <div class="pseudo">
+            <label for="pseudo">Pseudo</label>
+            <input type="text" name="nickname" id="pseudo">
+        </div>
+        <div class="email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="pass">
+            <label for="pass">Mot de passe</label>
+            <input type="password" name="pass" id="pass">
+        </div>
+        <div class="button">
+            <button type="submit">M'inscrire</button>
+        </div>
+    </form>
+</div>
 <?php
 //on inclu le footer 
 include "footer.php"
 ?>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: red;
+
+    }
+
+    .pseudo,
+    .email,
+    .pass,
+    .button {
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+    }
+
+    /* .email {
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+    }
+
+    .pass {
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+    } */
+    button {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    /* label {
+        justify-content: center;
+    }
+
+    input {
+
+        margin-left: 5%;
+
+
+    } */
+    label {
+        display: inline-block;
+        float: left;
+        clear: left;
+        width: 250px;
+        text-align: right;
+    }
+
+    input {
+        display: inline-block;
+        float: left;
+    }
+</style>

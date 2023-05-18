@@ -14,7 +14,8 @@
 
 
     .footer-bottom {
-        background: #000;
+        /* background: #000; */
+        background-color: #3459E6;
         width: 100%;
         padding: 20px;
         padding-bottom: 40px;
@@ -75,7 +76,7 @@
 </style>
 <footer>
     <div class="footer-bottom">
-        <p>copyright &copy; <a href="#">My Library</a> </p>
+        <p>copyright &copy; <a href="#">Bibliothèque</a> </p>
         <div class="footer-menu">
             <ul class="f-menu">
                 <?php if (isset($_SESSION["user"])) : ?>

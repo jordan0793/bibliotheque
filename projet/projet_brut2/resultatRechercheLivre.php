@@ -2,10 +2,6 @@
 session_start();
 include_once "header.php"
 ?>
-<?php
-session_start();
-include_once "header.php"
-?>
 
 <table class="table table-hover">
     <thead>

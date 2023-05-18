@@ -6,7 +6,7 @@ include_once "header.php"
 <div class="container">
     <div class="firstPannel">
 
-        <div class="card border-success mb-3" style="max-width: 20rem;">
+        <div class="card border-success mb-3" style="width: 20rem;">
             <div class="card-header">RECHERCHE PAR AUTEUR</div>
             <div class="card-body">
                 <form action="/rechercheCriteres/fonctions/rechercheAuteur.php">
@@ -14,7 +14,7 @@ include_once "header.php"
                 </form>
             </div>
         </div>
-        <div class="card border-warning mb-3" style="max-width: 20rem;">
+        <div class="card border-warning mb-3" style="width: 20rem;">
             <div class="card-header">RECHERCHE PAR TITRE</div>
             <div class="card-body">
                 <form action="/rechercheCriteres/fonctions/rechercheTitre.php">
@@ -22,7 +22,7 @@ include_once "header.php"
                 </form>
             </div>
         </div>
-        <div class="card border-danger mb-3" style="max-width: 20rem;">
+        <div class="card border-danger mb-3" style="width: 20rem;">
             <div class="card-header">RECHERCHE PAR GENRE</div>
             <div class="card-body">
                 <form action="/rechercheCriteres/fonctions/rechercheType.php">
@@ -33,7 +33,7 @@ include_once "header.php"
     </div>
 
     <div class="secondPannel">
-        <div class="allBook card border-primary mb-3" style="max-width: 20rem;">
+        <div class="allBook card border-primary mb-3" style="width: 20rem;">
             <div class="card-header">TOUS LES LIVRES</div>
             <div class="card-body">
                 <form action="/rechercheCriteres/fonctions/tousLivres.php">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 // on verifie si le formulaire a été envoyé
-// video 14 , si je suis connecté, j'ai pas besoin de m'inscrire , tu va direct a mon profil 
+// si je suis connecté, j'ai pas besoin de m'inscrire , tu va direct a mon profil 
 if (isset($_SESSION["user"]["pseudo"])) {
     header("Location: profil.php");
     exit;
@@ -34,8 +34,6 @@ if (!empty($_POST)) {
         $query->execute();
 
         $user = $query->fetch();
-        // var_dump($user);
-
         // var_dump($user);
 
         if (!$user) {
@@ -82,18 +80,74 @@ if (!empty($_POST)) {
 include "header.php";
 ?>
 
-<h1> Connexion </h1>
-<form method="post">
-    <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-    </div>
-    <div>
-        <label for="pass">Mot de passe</label>
-        <input type="password" name="pass" id="pass">
-    </div>
-    <button type="submit">Me connecter</button>
-</form>
+<div class="container">
+    <h1> Connexion </h1>
+    <form method="post" class="form">
+        <div class="email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="pass">
+            <label for="pass">Mot de passe</label>
+            <input type="password" name="pass" id="pass">
+        </div>
+        <div class="button"><button type="submit">Me connecter</button></div>
+    </form>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        /* background-color: red; */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        /* background-color: aqua; */
+        /* display: flex; */
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* .form {
+        background-color: blue;
+        display: flex;
+
+    } */
+
+    .email {
+        /* background-color: darkgreen; */
+        /* display: flex; */
+        margin-top: 10%;
+
+    }
+
+    .pass {
+        /* background-color: purple; */
+        /* display: flex; */
+        margin-top: 10%;
+        padding-right: 4%;
+    }
+
+    .button {
+        /* background-color: yellow; */
+        /* display: flex; */
+        margin-bottom: 1%;
+        margin-top: 10%;
+
+    }
+
+    button {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+    }
+</style>
 <?php
 //on inclu le footer 
 include "footer.php"

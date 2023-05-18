@@ -62,6 +62,15 @@
     // On récupére les données ( fetch ou fetchAll)
     //fetch récupére une valeur , All récupére plusieurs valeurs
     $utilisateurs = $requete->fetchAll();
+
+    $sql = "SELECT * FROM `utilisateurs` WHERE 'roles' = '[\"ROLE_USER\"][\"ROLE_ADMIN\"]'";
+
+    $requete = $db->query($sql);
+
+    $administrateur = $requete->fetchAll();
+
+
+
     // var_dump($utilisateurs);
 
     // echo "<pre>";
