@@ -80,9 +80,8 @@
         <div class="footer-menu">
             <ul class="f-menu">
                 <?php if (isset($_SESSION["user"])) : ?>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
+
+
 
                 <?php else : ?>
 

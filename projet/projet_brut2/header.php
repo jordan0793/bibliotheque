@@ -50,7 +50,7 @@
 
         <?php elseif (
         isset($_SESSION["user"])
-        && ($_SESSION["user"]["roles"] === '["ROLE_USER"]')
+        && ($_SESSION["user"]["roles"] = '["ROLE_USER"]')
     ) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="/menuRechercheLivre.php">Recherche</a>

@@ -120,7 +120,7 @@ include "footer.php"
         display: flex;
         flex-direction: column;
         text-align: center;
-        background-color: red;
+        /* background-color: red; */
 
     }
 
@@ -129,48 +129,34 @@ include "footer.php"
     .pass,
     .button {
         display: flex;
-        justify-content: center;
         margin-top: 10%;
+        margin-left: 20%;
+
     }
 
-    /* .email {
-        display: flex;
-        justify-content: center;
-        margin-top: 10%;
-    }
 
-    .pass {
-        display: flex;
-        justify-content: center;
-        margin-top: 10%;
-    } */
     button {
+        margin-left: 35%;
+        margin-bottom: 5%;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
 
-    /* label {
-        justify-content: center;
-    }
-
-    input {
-
-        margin-left: 5%;
 
 
-    } */
+
+
+
     label {
         display: inline-block;
-        float: left;
         clear: left;
         width: 250px;
-        text-align: right;
+
     }
 
     input {
         display: inline-block;
-        float: left;
     }
 </style>
