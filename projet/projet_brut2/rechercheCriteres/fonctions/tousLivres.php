@@ -6,21 +6,6 @@ include_once "../../header.php";
 
 ?>
 
-<!-- <table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Numéro</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Parution</th>
-            <th scope="col">Résumé</th>
-            <th scope="col">type</th>
-            <th scope="col">Auteur</th>
-            <th scope="col">nombre d'exemplaire</th>
-
-
-        </tr>
-    </thead>
-</table> -->
 <?php
 // Requête d'affichage de tous les livres de la BDD
 
@@ -35,25 +20,25 @@ $livres = $query->fetchAll();
 
 if (count($livres) > 0) {
 ?>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Numéro</th>
-                <th scope="col">Titre</th>
-                <th scope="col">Parution</th>
-                <th scope="col">Résumé</th>
-                <th scope="col">type</th>
-                <th scope="col">Auteur</th>
-                <th scope="col">nombre d'exemplaire</th>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Parution</th>
+                    <th scope="col">Résumé</th>
+                    <th scope="col">type</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">nombre d'exemplaire</th>
 
 
-            </tr>
-        </thead>
-    <?php
-    $nb_total_livre = 0;
-    foreach ($livres as $value) {
-        echo '
-
+                </tr>
+            </thead>
+        <?php
+        $nb_total_livre = 0;
+        foreach ($livres as $value) {
+            echo '
 <tbody>
 
 <tr>
@@ -67,15 +52,22 @@ if (count($livres) > 0) {
 </td>  
 </tr>';
 
-        $nb_total_livre = $nb_total_livre + 1;
-    };
-    echo ($nb_total_livre . " oeuvres littéraires au total");
-} else {
-    die("Veuillez ajouter des livres");
-}
-    ?>
-    </tbody>
-    </table>
+            $nb_total_livre = $nb_total_livre + 1;
+        };
+        echo "<div class= 'tousLivres'>  $nb_total_livre  oeuvres littéraires au total  </div>";
+    } else {
+        die("Veuillez ajouter des livres");
+    }
+        ?>
+        </tbody>
+        </table>
+    </div>
+    <style>
+        .tousLivres {
+            margin-top: 1%;
+            text-align: center;
+        }
+    </style>
     <?php
 
 

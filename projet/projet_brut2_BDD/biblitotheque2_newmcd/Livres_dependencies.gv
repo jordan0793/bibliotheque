@@ -1,0 +1,15 @@
+digraph {
+  node [shape=box]
+  "inscrit" -> "abonnement"
+  "livre" -> "appartient"
+  "genre" -> "appartient"
+  "exemplaire" -> "concerne"
+  "emprunt" -> "concerne"
+  "livre" -> "ecrire"
+  "auteur" -> "ecrire"
+  "inscrit" -> "emprunt"
+  "livre" -> "exemplaire"
+  "edition" -> "exemplaire"
+  "livre" -> "gerer"
+  "utilisateurs" -> "gerer"
+}

@@ -1,0 +1,34 @@
+
+gerer, 0N livre, 0N utilisateurs
+utilisateurs: utilisateurs_id, email, password, username, roles
+
+
+:
+:
+:
+:
+edition: id_ed, nom_ed
+
+appartient, 1N livre, 0N genre
+livre: id_li, titre_li, date_parution_li, resume_li, type_li, auteur_li, nb_exemplaire_li
+contient, 0N livre, 11 exemplaire
+exemplaire: ref_ex, cote_ex
+paraitre, 11 exemplaire, 0N edition
+
+genre: id_gen, livre_gen
+ecrire, 0N livre, 0N auteur
+emprunt: id_em, date_em, delai_em, statut_em
+concerne, 0N exemplaire, 15 emprunt
+:
+
+:
+auteur: id_a, prenom_a, nom_a, date_naissance_a, pays_origine_auteur, bio_a
+effectuer, 0N inscrit, 11 emprunt
+inscrit: id_i, num_i, nom_i, prenom_i, adresse_i, tel_i, email_i
+:
+
+:
+possede, 11 auteur, 0N pays_origine
+pays_origine: nom_po
+abonner, 11 abonnement, 11 inscrit
+abonnement: id_abon, num_abon, date_abon, montant_abon, date_debut_abon, date_fin_abon

@@ -1,0 +1,194 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+  #mld strong { font-weight: bold }
+  #mld i { font-style: italic }
+  #mld ul { list-style-type:square; margin: 0 0 1em 2em }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <details><summary><span class='relation'>abonnement</span> (
+    <span title='primary_key (None)' class='primary'>id_abon</span>,
+    <span title='normal_attribute (None)' class='normal'>num_abon</span>,
+    <span title='normal_attribute (None)' class='normal'>date_abon</span>,
+    <span title='normal_attribute (None)' class='normal'>montant_abon</span>,
+    <span title='normal_attribute (None)' class='normal'>date_debut_abon</span>,
+    <span title='normal_attribute (None)' class='normal'>date_fin_abon</span>,
+    <span title='foreign_key (inscrit)' class='foreign'>#id_i</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_abon</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>abonnement</i>.</li>
+    <li>Les champs <i>num_abon</i>, <i>date_abon</i>, <i>montant_abon</i>, <i>date_debut_abon</i> et <i>date_fin_abon</i> étaient déjà de simples attributs de l'entité <i>abonnement</i>.</li>
+    <li>Le champ <i>id_i</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>abonner</i> à partir de l'entité <i>inscrit</i> en perdant son caractère identifiant.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>appartient</span> (
+    <span title='primary_foreign_key (livre)' class='foreign primary'>#id_li</span>,
+    <span title='primary_foreign_key (genre)' class='foreign primary'>#id_gen</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_li</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>livre</i>.</li>
+    <li>Le champ <i>id_gen</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>genre</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>auteur</span> (
+    <span title='primary_key (None)' class='primary'>id_a</span>,
+    <span title='normal_attribute (None)' class='normal'>prenom_a</span>,
+    <span title='normal_attribute (None)' class='normal'>nom_a</span>,
+    <span title='normal_attribute (None)' class='normal'>date_naissance_a</span>,
+    <span title='normal_attribute (None)' class='normal'>pays_origine_auteur</span>,
+    <span title='normal_attribute (None)' class='normal'>bio_a</span>,
+    <span title='naturalized_foreign_key (pays_origine)' class='normal'>nom_po</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_a</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>auteur</i>.</li>
+    <li>Les champs <i>prenom_a</i>, <i>nom_a</i>, <i>date_naissance_a</i>, <i>pays_origine_auteur</i> et <i>bio_a</i> étaient déjà de simples attributs de l'entité <i>auteur</i>.</li>
+    <li>Le champ <i>nom_po</i> a migré par l'association de dépendance fonctionnelle <i>possede</i> à partir de l'entité <i>pays_origine</i> en perdant son caractère identifiant. De plus, comme la table créée à partir de cette entité a été supprimée, il n'est pas considéré comme clé étrangère.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>concerne</span> (
+    <span title='primary_foreign_key (exemplaire)' class='foreign primary'>#ref_ex</span>,
+    <span title='primary_foreign_key (emprunt)' class='foreign primary'>#id_em</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>ref_ex</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>exemplaire</i>.</li>
+    <li>Le champ <i>id_em</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>emprunt</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>ecrire</span> (
+    <span title='primary_foreign_key (livre)' class='foreign primary'>#id_li</span>,
+    <span title='primary_foreign_key (auteur)' class='foreign primary'>#id_a</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_li</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>livre</i>.</li>
+    <li>Le champ <i>id_a</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>auteur</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>edition</span> (
+    <span title='primary_key (None)' class='primary'>id_ed</span>,
+    <span title='normal_attribute (None)' class='normal'>nom_ed</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_ed</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>edition</i>.</li>
+    <li>Le champ <i>nom_ed</i> était déjà un simple attribut de l'entité <i>edition</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>emprunt</span> (
+    <span title='primary_key (None)' class='primary'>id_em</span>,
+    <span title='normal_attribute (None)' class='normal'>date_em</span>,
+    <span title='normal_attribute (None)' class='normal'>delai_em</span>,
+    <span title='normal_attribute (None)' class='normal'>statut_em</span>,
+    <span title='foreign_key (inscrit)' class='foreign'>#id_i</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_em</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>emprunt</i>.</li>
+    <li>Les champs <i>date_em</i>, <i>delai_em</i> et <i>statut_em</i> étaient déjà de simples attributs de l'entité <i>emprunt</i>.</li>
+    <li>Le champ <i>id_i</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>effectuer</i> à partir de l'entité <i>inscrit</i> en perdant son caractère identifiant.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>exemplaire</span> (
+    <span title='primary_key (None)' class='primary'>ref_ex</span>,
+    <span title='normal_attribute (None)' class='normal'>cote_ex</span>,
+    <span title='foreign_key (livre)' class='foreign'>#id_li</span>,
+    <span title='foreign_key (edition)' class='foreign'>#id_ed</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>ref_ex</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>exemplaire</i>.</li>
+    <li>Le champ <i>cote_ex</i> était déjà un simple attribut de l'entité <i>exemplaire</i>.</li>
+    <li>Le champ <i>id_li</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>contient</i> à partir de l'entité <i>livre</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>id_ed</i> est une clé étrangère. Il a migré par l'association de dépendance fonctionnelle <i>paraitre</i> à partir de l'entité <i>edition</i> en perdant son caractère identifiant.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>genre</span> (
+    <span title='primary_key (None)' class='primary'>id_gen</span>,
+    <span title='normal_attribute (None)' class='normal'>livre_gen</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_gen</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>genre</i>.</li>
+    <li>Le champ <i>livre_gen</i> était déjà un simple attribut de l'entité <i>genre</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>gerer</span> (
+    <span title='primary_foreign_key (livre)' class='foreign primary'>#id_li</span>,
+    <span title='primary_foreign_key (utilisateurs)' class='foreign primary'>#utilisateurs_id</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_li</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>livre</i>.</li>
+    <li>Le champ <i>utilisateurs_id</i> fait partie de la clé primaire de la table. C'est une clé étrangère qui a migré directement à partir de l'entité <i>utilisateurs</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>inscrit</span> (
+    <span title='primary_key (None)' class='primary'>id_i</span>,
+    <span title='normal_attribute (None)' class='normal'>num_i</span>,
+    <span title='normal_attribute (None)' class='normal'>nom_i</span>,
+    <span title='normal_attribute (None)' class='normal'>prenom_i</span>,
+    <span title='normal_attribute (None)' class='normal'>adresse_i</span>,
+    <span title='normal_attribute (None)' class='normal'>tel_i</span>,
+    <span title='normal_attribute (None)' class='normal'>email_i</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_i</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>inscrit</i>.</li>
+    <li>Les champs <i>num_i</i>, <i>nom_i</i>, <i>prenom_i</i>, <i>adresse_i</i>, <i>tel_i</i> et <i>email_i</i> étaient déjà de simples attributs de l'entité <i>inscrit</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>livre</span> (
+    <span title='primary_key (None)' class='primary'>id_li</span>,
+    <span title='normal_attribute (None)' class='normal'>titre_li</span>,
+    <span title='normal_attribute (None)' class='normal'>date_parution_li</span>,
+    <span title='normal_attribute (None)' class='normal'>resume_li</span>,
+    <span title='normal_attribute (None)' class='normal'>type_li</span>,
+    <span title='normal_attribute (None)' class='normal'>auteur_li</span>,
+    <span title='normal_attribute (None)' class='normal'>nb_exemplaire_li</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>id_li</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>livre</i>.</li>
+    <li>Les champs <i>titre_li</i>, <i>date_parution_li</i>, <i>resume_li</i>, <i>type_li</i>, <i>auteur_li</i> et <i>nb_exemplaire_li</i> étaient déjà de simples attributs de l'entité <i>livre</i>.</li>
+  </ul></details>
+</div>
+
+<div>
+  <details><summary><span class='relation'>utilisateurs</span> (
+    <span title='primary_key (None)' class='primary'>utilisateurs_id</span>,
+    <span title='normal_attribute (None)' class='normal'>email</span>,
+    <span title='normal_attribute (None)' class='normal'>password</span>,
+    <span title='normal_attribute (None)' class='normal'>username</span>,
+    <span title='normal_attribute (None)' class='normal'>roles</span>
+  )</summary>
+  <ul>
+    <li>Le champ <i>utilisateurs_id</i> constitue la clé primaire de la table. C'était déjà un identifiant de l'entité <i>utilisateurs</i>.</li>
+    <li>Les champs <i>email</i>, <i>password</i>, <i>username</i> et <i>roles</i> étaient déjà de simples attributs de l'entité <i>utilisateurs</i>.</li>
+  </ul></details>
+</div>
+<br><hr><br><div><span><strong>NB.</strong> La table <i>pays_origine</i> a été supprimée car elle était réduite à la clé primaire de son entité d'origine.</span></div>
+</div>
+</body>
+</html>

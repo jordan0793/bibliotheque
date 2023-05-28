@@ -1,0 +1,28 @@
+% Copy this before \begin{document}
+
+\usepackage[normalem]{ulem}
+\newenvironment{mld}
+  {\par\begin{minipage}{\linewidth}\begin{tabular}{rp{0.7\linewidth}}}
+  {\end{tabular}\end{minipage}\par}
+\newcommand{\relat}[1]{\textsc{#1}}
+\newcommand{\attr}[1]{\emph{#1}}
+\newcommand{\prim}[1]{\uline{#1}}
+\newcommand{\foreign}[1]{\#\textsl{#1}}
+
+% Copy that after \begin{document}
+
+\begin{mld}
+  Abonnement & (\prim{id\_abon}, \attr{num\_abon}, \attr{date\_abon}, \attr{montant\_abon}, \attr{date\_debut\_abon}, \attr{date\_fin\_abon}, \foreign{id\_i})\\
+  Appartient & (\foreign{\prim{id\_li}}, \foreign{\prim{id\_gen}})\\
+  Auteur & (\prim{id\_a}, \attr{prenom\_a}, \attr{nom\_a}, \attr{date\_naissance\_a}, \attr{pays\_origine\_auteur}, \attr{bio\_a}, \attr{nom\_po})\\
+  Concerne & (\foreign{\prim{ref\_ex}}, \foreign{\prim{id\_em}})\\
+  Ecrire & (\foreign{\prim{id\_li}}, \foreign{\prim{id\_a}})\\
+  Edition & (\prim{id\_ed}, \attr{nom\_ed})\\
+  Emprunt & (\prim{id\_em}, \attr{date\_em}, \attr{delai\_em}, \attr{statut\_em}, \foreign{id\_i})\\
+  Exemplaire & (\prim{ref\_ex}, \attr{cote\_ex}, \foreign{id\_li}, \foreign{id\_ed})\\
+  Genre & (\prim{id\_gen}, \attr{livre\_gen})\\
+  Gerer & (\foreign{\prim{id\_li}}, \foreign{\prim{utilisateurs\_id}})\\
+  Inscrit & (\prim{id\_i}, \attr{num\_i}, \attr{nom\_i}, \attr{prenom\_i}, \attr{adresse\_i}, \attr{tel\_i}, \attr{email\_i})\\
+  Livre & (\prim{id\_li}, \attr{titre\_li}, \attr{date\_parution\_li}, \attr{resume\_li}, \attr{type\_li}, \attr{auteur\_li}, \attr{nb\_exemplaire\_li})\\
+  Utilisateurs & (\prim{utilisateurs\_id}, \attr{email}, \attr{password}, \attr{username}, \attr{roles})\\
+\end{mld}

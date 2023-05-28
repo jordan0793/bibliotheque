@@ -11,19 +11,35 @@ Autoloader::register();
 
 include_once "../header.php";
 ?>
-<form method="post">
-    <fieldset>
-        <legend>Rechercher un Auteur</legend>
+<div class="container">
+    <form method="post">
+        <fieldset>
+            <legend>Rechercher un Auteur</legend>
 
-        <div class="form-group">
-            <label for="auteur" class="form-label mt-4">Entrer un Auteur</label>
-            <input type="text" class="form-control" id="auteur" name="auteur" aria-describedby="auteur" placeholder="Entrer l'auteur du livre">
-        </div>
+            <div class="form-group">
+                <label for="auteur" class="form-label mt-4">Entrer un Auteur</label>
+                <input type="text" class="form-control" id="auteur" name="auteur" aria-describedby="auteur" placeholder="Entrer l'auteur du livre">
+            </div>
 
 
-    </fieldset>
-    <button type="submit" class='mt-2'>Soumettre</button>
-</form>
+        </fieldset>
+        <button type="submit" class='mt-2'>Soumettre</button>
+    </form>
+    <style>
+        button {
+            margin-top: 1%;
+            border-radius: 30px;
+        }
+
+        legend {
+            text-align: center;
+        }
+
+        .echec {
+            text-align: center;
+        }
+    </style>
+</div>
 <?php
 
 
@@ -54,22 +70,23 @@ if (!empty($_POST)) {
         if (count($livres) > 0) {
             //echo "cet auteur est répertorié";
 ?>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Numéro</th>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Parution</th>
-                        <th scope="col">Résumé</th>
-                        <th scope="col">type</th>
-                        <th scope="col">Auteur</th>
-                        <th scope="col">nombre d'exemplaire</th>
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Numéro</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Parution</th>
+                            <th scope="col">Résumé</th>
+                            <th scope="col">type</th>
+                            <th scope="col">Auteur</th>
+                            <th scope="col">nombre d'exemplaire</th>
 
 
-                    </tr>
+                        </tr>
 
-                </thead>
-    <?php
+                    </thead>
+        <?php
             // foreach ($livres as $value) {
             //     echo "<br>" . $value["titre_li"];
             // }
@@ -85,23 +102,38 @@ if (!empty($_POST)) {
     <td>' . $value['resume_li'] . '</td>
     <td>' . $value['type_li'] . '</td>
     <td>' . $value['auteur_li'] . '</td>
-    <td>' . $value['nb_exemplaire_li']  . '<a href="/rechercheCriteres/fonctions/modifierLivre.php?id=' . $value['id_li'] . '">Modifier</a>
+    <td>' . $value['nb_exemplaire_li']  . ' <button><a href="/rechercheCriteres/fonctions/modifierLivre.php?id=' . $value['id_li'] . '">Modifier</a></button>
     
-    </td> 
+   
     </tr>';
             }
             // var_dump($value['id_li']);
         } else {
-            die("Cet auteur n'est pas répertorié, Veuillez Reessayez");
+            die('<div class ="echec">Cet auteur n\'est pas répertorié, Veuillez Reessayez</div>');
         }
     }
 }
 
 
 
-    ?>
-    </tbody>
-            </table>
+        ?>
+        </tbody>
+                </table>
+            </div>
+            <!-- <style>
+                button {
+                    margin-top: 1%;
+                    border-radius: 30px;
+                }
+
+                legend {
+                    text-align: center;
+                }
+
+                .echec {
+                    text-align: center;
+                }
+            </style> -->
 
             <?php
             include_once "../footer.php"

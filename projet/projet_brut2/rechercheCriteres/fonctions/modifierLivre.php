@@ -20,12 +20,12 @@ if (!empty($_POST)) {
     ) {
 
         //Protection par conversion en chaine de caractères 
-        $titre = strip_tags($_POST["titre"]);
-        $dateDeParution = strip_tags($_POST["dateDeParution"]);
-        $resumeLivre = strip_tags($_POST["resumeLivre"]);
-        $typeLivre = strip_tags($_POST["typeLivre"]);
-        $auteur = strip_tags($_POST["auteur"]);
-        $exemplaire = strip_tags($_POST["exemplaire"]);
+        $titre = htmlspecialchars($_POST["titre"]);
+        $dateDeParution = htmlspecialchars($_POST["dateDeParution"]);
+        $resumeLivre = htmlspecialchars($_POST["resumeLivre"]);
+        $typeLivre = htmlspecialchars($_POST["typeLivre"]);
+        $auteur = htmlspecialchars($_POST["auteur"]);
+        $exemplaire = htmlspecialchars($_POST["exemplaire"]);
 
         //Connexion a la BDD
         // require_once "../connectLivres.php";
@@ -78,7 +78,7 @@ $livre = $stmt->fetch();
         </div>
         <div class="form-group">
             <label for="dateDeParution" class="form-label mt-4">Date de parution (année)</label>
-            <input type="text" VALUE="<?php echo $livre['date_parution_li']; ?>" class="form-control" id="dateDeParution" name="dateDeParution" aria-describedby="dateDeParution" placeholder="Entrer la date de parution">
+            <input type="number" VALUE="<?php echo $livre['date_parution_li']; ?>" class="form-control" id="dateDeParution" name="dateDeParution" aria-describedby="dateDeParution" placeholder="Entrer la date de parution">
         </div>
         <div class="form-group">
             <label for="resumeLivre" class="form-label mt-4">Resumé</label>
@@ -94,12 +94,24 @@ $livre = $stmt->fetch();
         </div>
         <div class="form-group">
             <label for="exemplaire" class="form-label mt-4">Nombres d'exemplaires</label>
-            <input type="text" VALUE="<?php echo $livre['nb_exemplaire_li']; ?>" class="form-control" id="exemplaire" name="exemplaire" aria-describedby="exemplaire" placeholder="Entrer le nombre d'exemplaire">
+            <input type="number" VALUE="<?php echo $livre['nb_exemplaire_li']; ?>" class="form-control" id="exemplaire" name="exemplaire" aria-describedby="exemplaire" placeholder="Entrer le nombre d'exemplaire">
         </div>
 
     </fieldset>
     <button type="submit">Soumettre</button>
 </form>
+<style>
+    button {
+        margin-top: 5%;
+        margin-bottom: 1%;
+        border-radius: 30px;
+    }
+
+    legend {
+        margin-top: 1%;
+        text-align: center;
+    }
+</style>
 <?php
 include_once "../../footer.php"
 ?>

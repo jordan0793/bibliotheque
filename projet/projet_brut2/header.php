@@ -20,12 +20,11 @@
 
 
     <?php if (
-        // Si tu es administrateur , affiche ....
+        // Si la session de connexion est définit ET que cette session contient STRICTEMENT les rôles user et admin alors ...
         isset($_SESSION["user"])
         && ($_SESSION["user"]["roles"] === '["ROLE_USER"]["ROLE_ADMIN"]')
     ) :
-        // $_SESSION["user"]["roles"];
-        // require_once("connect.php");
+        // Alors le message de bienvenue s'affiche avec nom de l'administrateur...
     ?>
         <ul class="navbar-nav me-auto">
             <div class="helloUser">Bienvenue
@@ -46,11 +45,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/logout.php">Deconnexion</a>
             </li>
+            <!-- Alors la gestion, la recherche, le profil et la déconnexion apparaitrons dans le menu header de l'utilisateur définit par le rôle administrateur 
 
+            En revanche, si la session de connexion est définit ET que le rôle de l'utilisateur est STRICTEMENT le rôle user alors ... !-->
 
         <?php elseif (
         isset($_SESSION["user"])
-        && ($_SESSION["user"]["roles"] = '["ROLE_USER"]')
+        && ($_SESSION["user"]["roles"] === '["ROLE_USER"]')
     ) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="/menuRechercheLivre.php">Recherche</a>
@@ -61,7 +62,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/logout.php">Deconnexion</a>
             </li>
-
+            <!-- Alors n'apparaitrons seulement que les liens de navigation recherche, profil, déconnexion  -->
         <?php else : ?>
 
 
@@ -71,6 +72,7 @@
                 </a>
             </li>
         </ul>
+        <!-- Si nous ne figuerons dans auncun des deux précédent cas, proposez la connexion -->
     <?php endif; ?>
 
 

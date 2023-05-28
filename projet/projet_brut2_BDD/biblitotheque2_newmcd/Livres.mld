@@ -1,0 +1,43 @@
+%%mocodo
+:::
+gerer: #id_li->livre->id_li, _#utilisateurs_id->utilisateurs->utilisateurs_id
+:
+utilisateurs: utilisateurs_id, email, password, username, roles
+:::::
+
+
+:::::::::
+edition: id_ed, nom_ed
+:
+
+
+:
+appartient: #id_li->livre->id_li, _#id_gen->genre->id_gen
+:
+livre: id_li, titre_li, date_parution_li, resume_li, type_li, auteur_li, nb_exemplaire_li
+:::
+exemplaire: ref_ex, cote_ex, #id_li->livre->id_li, #id_ed->edition->id_ed
+:::
+
+
+:
+genre: id_gen, livre_gen
+:
+ecrire: #id_li->livre->id_li, _#id_a->auteur->id_a
+:
+emprunt: id_em, date_em, delai_em, statut_em, #id_i->inscrit->id_i
+:
+concerne: #ref_ex->exemplaire->ref_ex, _#id_em->emprunt->id_em
+:::
+
+
+:::
+auteur: id_a, prenom_a, nom_a, date_naissance_a, pays_origine_auteur, bio_a, nom_po
+:::
+inscrit: id_i, num_i, nom_i, prenom_i, adresse_i, tel_i, email_i
+:::
+
+
+:::::::::
+abonnement: id_abon, num_abon, date_abon, montant_abon, date_debut_abon, date_fin_abon, #id_i->inscrit->id_i
+:
