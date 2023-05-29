@@ -4,6 +4,8 @@ session_start();
 
 // Si je suis connecté, j'ai pas besoin de m'inscrire , tu va direct a mon profil 
 if (isset($_SESSION["user"]["pseudo"])) {
+    // require_once("login.php)");
+    include("header.php");
     header("Location: profil.php");
     exit;
 }
@@ -58,7 +60,10 @@ if (!empty($_POST)) {
         $query->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
         $query->bindValue(":email", $_POST["email"], PDO::PARAM_STR);
 
+
+
         $query->execute();
+
 
         // On récupère l'id du nouvel utilisateur 
         $id = $db->lastInsertId();
@@ -68,11 +73,14 @@ if (!empty($_POST)) {
         $_SESSION["user"] = [
             "id" => $id,
             "email" => $_POST["email"],
-            "roles" => ["ROLE_USER"],
+            "roles" => '["ROLE_USER"]',
             "pseudo" => $pseudo
         ];
-
+        session_start();
+        include('header.php');
         header("Location: profil.php");
+
+
 
         //Quand la session de conxion existe, elle renvoie automatiquement au profil de l'utilisateur connecter. session user tableau accompaggner de header location , définira précisement que cette session existe, nous l'integrerons ensuite dans cette page et dans toute autre pages ou l'on a besoin de la session de connexion , en utilisant session start en tout debut de page.
 
