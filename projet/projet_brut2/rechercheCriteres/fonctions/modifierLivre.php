@@ -69,37 +69,39 @@ $livre = $stmt->fetch();
 
 
 ?>
-<form method="post">
-    <fieldset>
-        <legend>Modifier un livre</legend>
-        <div class="form-group">
-            <label for="titre" class="form-label mt-4">Titre</label>
-            <input type="text" class="form-control" id="titre" name="titre" VALUE="<?php echo $livre['titre_li']; ?>" aria-describedby="titre" placeholder="Entrer titre">
-        </div>
-        <div class="form-group">
-            <label for="dateDeParution" class="form-label mt-4">Date de parution (année)</label>
-            <input type="number" VALUE="<?php echo $livre['date_parution_li']; ?>" class="form-control" id="dateDeParution" name="dateDeParution" aria-describedby="dateDeParution" placeholder="Entrer la date de parution">
-        </div>
-        <div class="form-group">
-            <label for="resumeLivre" class="form-label mt-4">Resumé</label>
-            <input type="text" VALUE="<?php echo $livre['resume_li']; ?>" class="form-control" id="resumeLivre" name="resumeLivre" aria-describedby="resumeLivre" placeholder="Résumé du livre">
-        </div>
-        <div class="form-group">
-            <label for="typeLivre" class="form-label mt-4">Type</label>
-            <input type="text" VALUE="<?php echo $livre['type_li']; ?>" class="form-control" id="typeLivre" name="typeLivre" aria-describedby="typeLivre" placeholder="Entrer le type/genre du livre">
-        </div>
-        <div class="form-group">
-            <label for="auteur" class="form-label mt-4">Auteur</label>
-            <input type="text" VALUE="<?php echo $livre['auteur_li']; ?>" class="form-control" id="auteur" name="auteur" aria-describedby="auteur" placeholder="Entrer l'auteur du livre">
-        </div>
-        <div class="form-group">
-            <label for="exemplaire" class="form-label mt-4">Nombres d'exemplaires</label>
-            <input type="number" VALUE="<?php echo $livre['nb_exemplaire_li']; ?>" class="form-control" id="exemplaire" name="exemplaire" aria-describedby="exemplaire" placeholder="Entrer le nombre d'exemplaire">
-        </div>
+<div class="container">
+    <form method="post">
+        <fieldset>
+            <legend>Modifier un livre</legend>
+            <div class="form-group">
+                <label for="titre" class="form-label mt-4">Titre</label>
+                <input type="text" class="form-control" id="titre" name="titre" VALUE="<?php echo $livre['titre_li']; ?>" aria-describedby="titre" placeholder="Entrer titre">
+            </div>
+            <div class="form-group">
+                <label for="dateDeParution" class="form-label mt-4">Date de parution (année)</label>
+                <input type="number" VALUE="<?php echo $livre['date_parution_li']; ?>" class="form-control" id="dateDeParution" name="dateDeParution" aria-describedby="dateDeParution" placeholder="Entrer la date de parution">
+            </div>
+            <div class="form-group">
+                <label for="resumeLivre" class="form-label mt-4">Resumé</label>
+                <input type="text" VALUE="<?php echo $livre['resume_li']; ?>" class="form-control" id="resumeLivre" name="resumeLivre" aria-describedby="resumeLivre" placeholder="Résumé du livre">
+            </div>
+            <div class="form-group">
+                <label for="typeLivre" class="form-label mt-4">Type</label>
+                <input type="text" VALUE="<?php echo $livre['type_li']; ?>" class="form-control" id="typeLivre" name="typeLivre" aria-describedby="typeLivre" placeholder="Entrer le type/genre du livre">
+            </div>
+            <div class="form-group">
+                <label for="auteur" class="form-label mt-4">Auteur</label>
+                <input type="text" VALUE="<?php echo $livre['auteur_li']; ?>" class="form-control" id="auteur" name="auteur" aria-describedby="auteur" placeholder="Entrer l'auteur du livre">
+            </div>
+            <div class="form-group">
+                <label for="exemplaire" class="form-label mt-4">Nombres d'exemplaires</label>
+                <input type="number" VALUE="<?php echo $livre['nb_exemplaire_li']; ?>" class="form-control" id="exemplaire" name="exemplaire" aria-describedby="exemplaire" placeholder="Entrer le nombre d'exemplaire">
+            </div>
 
-    </fieldset>
-    <button type="submit">Soumettre</button>
-</form>
+        </fieldset>
+        <button type="submit">Soumettre</button>
+    </form>
+</div>
 <style>
     button {
         margin-top: 5%;

@@ -33,6 +33,16 @@ include "header.php";
         ?>
     </section>
 </main>
+<style>
+    main {
+        text-align: center;
+    }
+
+    h1,
+    p {
+        padding-top: 5%;
+    }
+</style>
 
 
 
