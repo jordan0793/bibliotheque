@@ -95,6 +95,37 @@ include_once "header.php"
     .card {
         margin-left: 10%;
     }
+
+    @media only screen and (max-width : 900px) {
+        .addBook {
+            width: 100%;
+            text-align: center;
+            margin-right: 5%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5%;
+            padding-top: 25%;
+
+        }
+
+        button {
+            width: 50%;
+        }
+
+        .card {
+            margin-left: 5%;
+            text-align: center;
+        }
+
+        .secondPannel,
+        .thirdPannel {
+            width: 50%;
+
+        }
+    }
 </style>
 <?php
 include_once "footer.php"

@@ -39,8 +39,8 @@ if (!empty($_POST)) {
         $query = $db->prepare($sql);
 
         //Faire des bindValue pour connecter les variables php à leur paramètre SQL
-        // 3 paramètres : identifiant du paramètre , donc sont id = : pseudo , sa valeur , ici placé dans une variable ($pseudo = strip_tags($_POST["nickname"]));, puis le type , ici ce sera toujours PDO::PARAM_
         //Ainsi on remet une couche de protection car on lie un paramètre à une variable , le paramètre ici tout doit être en string avec PDO::PARAM_STR
+        // De cette manière on dit que le titre sera une chaine de caractère dans la base de donnée si on constate le contraire dans la BDD cela vient d'un piratage.
 
         $query->bindValue(":titre", $titre, PDO::PARAM_STR);
         $query->bindValue(":dateDeParution", $dateDeParution, PDO::PARAM_STR);

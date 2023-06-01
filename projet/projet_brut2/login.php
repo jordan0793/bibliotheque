@@ -47,6 +47,7 @@ if (!empty($_POST)) {
         if (!password_verify($_POST["pass"], $user["password"])) {
             // echo $_POST["pass"];
             // echo $user["password"];
+
             die("L'utilisateur et/ou le mot de passe est incorrect");
         }
         //Si le password n'a pas son equivalent dans la base de donnée, cela devrait die 
@@ -146,6 +147,18 @@ include "header.php";
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
 
+    }
+
+    /* Media Queries  */
+
+    @media only screen and (max-width : 900px) {
+        #email {
+            margin-left: 9%;
+        }
+
+        .pass {
+            padding: 0;
+        }
     }
 </style>
 <?php
